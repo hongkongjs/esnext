@@ -6,10 +6,10 @@
     color: darkorange;
 }
 
-.reveal code p {
-    margin: 0px;
-    line-height: 0px;
-}
+/*.reveal code p {
+    margin: 1px;
+    line-height: 1px;
+}*/
 
 .reveal p.header {
     text-align: center;
@@ -17,6 +17,23 @@
     color: darkorange;
 }
 
+.reveal p.header-left {
+    text-align: center;
+    font-size: 40Dpx;
+    color: darkorange;
+    text-align:left;
+}
 .reveal p.def {
     font-size: 30px;
+    text-align: left;
+}
+.reveal pre code{
+  max-height:none;
+  margin:0px;
+}
+.reveal pre code p {
+  margin:0px;
+}
+.reveal pre code mark {
+  margin:0px;
 }

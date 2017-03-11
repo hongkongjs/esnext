@@ -2,64 +2,58 @@
     var VS let,const and why should you care?
 </section>
 <section>
-    What is a scope? IMG TO SHELDEN "WHAT IS PHYSICS"
+    What does scope really means?
 </section>
 <section>
-    https://en.wikipedia.org/wiki/Scope_(computer_science)
-    <br>is the region of a computer program where the binding is valid: where the name can be used to refer to the entity. Such a region is referred to as a scope block
+    What is Scope?
+    <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)">
+        <br>Is the region of a computer program where the binding is valid: where the name can be used to refer to the entity. Such a region is referred to as a scope block
+    </a>
 </section>
 <section>
-    Types of scops ?
+    <img src="imgs/ch1/scope-wtf.gif" class="stretch">
 </section>
 <section>
-    Difference between static vs dynamic scoping? https://courses.cs.washington.edu/courses/cse341/03wi/imperative/scoping.html
+    What is Scope?
+    <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)">
+        <br>Is the <span class="highlight-points">region of a computer program </span>where the binding is valid: where the name can be used to refer to the entity. Such a region is referred to as a scope block
+    </a>
 </section>
 <section>
     <div class="row">
-        <div class="col-md-6">
-            <p class="header">Lexical Scope</p>
-            <p class="def">With lexical scope a variable's definition is resolved by searching its containing block or function, then if that fails searching the outer containing block, and so on</p>
+        Types of scops ?
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-6 highlight-points">
+            Dynamic Scope
         </div>
-
-        <div class="col-md-6">
-            <p class="header">Dynamic Scope</p>
-            <p class="def">with lexical scope a variable's definition is resolved by searching its containing block or function, then if that fails searching the outer containing block, and so on</p>
+        <div class="col-md-6 highlight-points">
+            Static or Lexical Scope
         </div>
-
     </div>
 </section>
 <section>
     <div class="row">
         <div class="col-md-6">
-            <p>Dynamic Scope</p>
-            <section>
-                <pre><code data-trim data-noescape style="max-height:none;margin:0px;">
-            <p class="test">function foo(){</p>
-              <br><mark>console.log("Test")</mark>
-            <br>
-          <p>}</p>
-          <p>l1</p>
-          <p>l2</p>
-          <p>l3</p>
-          </code></pre>
-            </section>
+            <p class="header-left fragment" data-fragment-index="1">Lexical Scope</p>
+            <p class="def fragment" data-fragment-index="2">With lexical scope a variable's definition is resolved by searching its
+                <span class="highlight-points">containing block or function</span>, then if that fails searching the <span class="highlight-points">outer containing block</span>, and so on</p>
         </div>
         <div class="col-md-6">
-            <p>Dynamic Scope</p>
-            <section>
-                <pre><code data-trim data-noescape>
-            <p>function foo(){</p>
-              <br><mark>console.log("Test")</mark>
-            <br>
-          <p>}</p>
-          </code></pre>
-            </section>
+            <pre class="fragment" data-fragment-index="3"><code data-trim data-noescape>
+            <p>{</p>
+            <p>   var x=5;<mark  class="fragment" data-fragment-index="5"> <====== </mark></p>
+            <p>   function foo(){ <mark  class="fragment" data-fragment-index="4"><====== </mark></p>
+            <p>     console.log(x)<span class="fragment highlight-point" data-gragment-index="6">//5</span></p>
+            <p> }<mark  class="fragment" data-fragment-index="4"><====== </mark></p>
+            <p>}</p>
+            </code></pre>
         </div>
     </div>
 </section>
-<section>
-    JS scoping which ?
-</section>
+
 <section>
     Var example ?
 </section>
