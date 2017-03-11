@@ -1,6 +1,22 @@
-.conv-text{
-  font-size: 14px;
+.conv-text {
+    font-size: 14px;
 }
-.highlight-points{
-  color: darkorange;
+
+.highlight-points {
+    color: darkorange;
+}
+
+.reveal code p {
+    margin: 0px;
+    line-height: 0px;
+}
+
+.reveal p.header {
+    text-align: center;
+    font-size: 40Dpx;
+    color: darkorange;
+}
+
+.reveal p.def {
+    font-size: 30px;
 }
