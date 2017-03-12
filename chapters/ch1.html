@@ -14,12 +14,6 @@
     <img src="imgs/ch1/scope-wtf.gif" class="stretch">
 </section>
 <section>
-    What is Scope?
-    <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)">
-        <br>Is the <span class="highlight-points">region of a computer program </span>where the binding is valid: where the name can be used to refer to the entity. Such a region is referred to as a scope block
-    </a>
-</section>
-<section>
     <div class="row">
         Types of scops ?
     </div>
@@ -37,29 +31,159 @@
 <section>
     <div class="row">
         <div class="col-md-6">
+            <p class="header-left">What is Scope?</p>
+            <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)">
+                <p class="fragment def" data-fragment-index="1">Is the <span class="highlight-points">region</span> of a <span class="highlight-points">computer program </span></p>
+                <p class="fragment def" data-fragment-index="3">Where the <span class="highlight-points">binding is valid</span></p>
+                <p class="fragment def" data-fragment-index="5">Such a region is referred to as a scope block</p>
+            </a>
+        </div>
+        <!-- <span  class="fragment" style="color:red;" data-fragment-index="5"> <====== </span> -->
+        <div class="col-md-6">
+            <pre class="fragment" data-fragment-index="2"><code data-trim data-noescape>
+          <p>{</p>
+          <p>   var x=5; <span  class="fragment" style="color:red;" data-fragment-index="6"> <======</span></p>
+          <p>   function foo(){ </p>
+            <span  class="fragment highlight-points" data-fragment-index="4">//x !=undefined or null i.e x=5</span>
+          <p>     console.log(x)</p>
+          <p> }</p>
+          <p>}<span  class="fragment" style="color:red;" data-fragment-index="6"> <======</span></p>
+          </code></pre>
+        </div>
+    </div>
+
+</section>
+
+<section>
+    <div class="row">
+        <div class="col-md-6">
             <p class="header-left fragment" data-fragment-index="1">Lexical Scope</p>
             <p class="def fragment" data-fragment-index="2">With lexical scope a variable's definition is resolved by searching its
                 <span class="highlight-points">containing block or function</span>, then if that fails searching the <span class="highlight-points">outer containing block</span>, and so on</p>
         </div>
         <div class="col-md-6">
             <pre class="fragment" data-fragment-index="3"><code data-trim data-noescape>
-            <p>{</p>
-            <p>   var x=5;<mark  class="fragment" data-fragment-index="5"> <====== </mark></p>
-            <p>   function foo(){ <mark  class="fragment" data-fragment-index="4"><====== </mark></p>
-            <p>     console.log(x)<span class="fragment highlight-point" data-gragment-index="6">//5</span></p>
-            <p> }<mark  class="fragment" data-fragment-index="4"><====== </mark></p>
-            <p>}</p>
+            <p>{<span  class="fragment" style="color:red;" data-fragment-index="5"> <====== </span></p>
+            <p>   var x=5;</p>
+            <p>   function foo(){ <span  class="fragment" style="color:red;" data-fragment-index="4"><====== </span></p>
+            <p>     <span>console.log(x)</span> <span class="fragment highlight-point" data-gragment-index="6">//5</span></p>
+            <p> }<span  class="fragment" style="color:red;" data-fragment-index="4"><====== </span></p>
+            <p>}<span  class="fragment" style="color:red;" data-fragment-index="5"> <====== </span></p>
             </code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    var VS let, const
+</section>
+<section>
+    Scopeing
+    <div class="row">
+        <div class="col-md-6">
+            <pre><code data-trim data-noescape>
+              function varBlock() {
+                  {
+                      var x = 5;
+                  }
+                  console.log(x);// 5
+              }
+          </code></pre>
+        </div>
+        <div class="col-md-6">
+            <pre><code data-trim data-noescape>
+              function letBlock() {
+                  {
+                      let x = 5;
+                  }
+                  console.log(x);//undefined
+              }
+          </code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    Reassigning
+    <div class="row">
+        <div class="col-md-6">
+            <pre><code data-trim data-noescape>
+              function varReassign() {
+                  var x = 5;
+                  console.log(x); //5
+                  x = 1;
+                  console.log(x); //1
+              }
+          </code></pre>
+        </div>
+        <div class="col-md-6">
+            <pre><code data-trim data-noescape>
+              function letReassign() {
+                  let x = 5;
+                  console.log(x); //5
+                  x = 1;
+                  console.log(x); //1
+              }
+          </code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    Re-Declaration
+    <div class="row">
+        <div class="col-md-6">
+            <pre><code data-trim data-noescape>
+              function varRedeclaration() {
+                  var x = 5;
+                  console.log(x); // 5
+                  var x = 1;
+                  console.log(x) //1
+              }
+          </code></pre>
+        </div>
+        <div class="col-md-6">
+            <pre><code data-trim data-noescape>
+              function letRedeclaration() {
+                  let x = 5;
+                  console.log(x); // 5
+                  let x = 1;//SyntaxError
+                  console.log(x)
+              }
+          </code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    Temporal Dead Zone
+    <div class="row">
+        <div class="col-md-6">
+            <pre><code data-trim data-noescape>
+              function varTemporalDeadZone() {
+                  console.log(x);//undefined
+                  var x = 5;
+              }
+          </code></pre>
+        </div>
+        <div class="col-md-6">
+            <pre><code data-trim data-noescape>
+              function letTemporalDeadZone() {
+                  console.log(x);
+                  //Reference Error
+                  let x = 5;
+              }
+          </code></pre>
         </div>
     </div>
 </section>
 
 <section>
-    Var example ?
-</section>
-<section>
-    let and const examples ?
-</section>
-<section>
-    Is var dead ? Browser support, and old code
+    const
+    <div class="row">
+        <pre><code data-trim data-noescape>
+          function constExample() {
+              const x = 5;
+              x = 2;
+              // TypeError: invalid assignment to
+              // const `x'
+          }
+          </code></pre>
+    </div>
 </section>

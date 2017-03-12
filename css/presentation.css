@@ -16,8 +16,16 @@
     font-size: 40Dpx;
     color: darkorange;
 }
-
 .reveal p.header-left {
+    text-align: left;
+    font-size: 40Dpx;
+}
+.reveal p.header-center-highlight {
+    text-align: center;
+    font-size: 40Dpx;
+    color: darkorange;
+}
+.reveal p.header-left-highlight {
     text-align: center;
     font-size: 40Dpx;
     color: darkorange;
