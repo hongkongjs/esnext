@@ -45,3 +45,7 @@
 .reveal pre code mark {
   margin:0px;
 }
+
+.reveal p.comparison{
+  font-size:30px;
+}

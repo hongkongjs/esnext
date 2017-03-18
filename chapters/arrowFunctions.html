@@ -1,0 +1,145 @@
+<section>
+    Arrow Functions
+</section>
+<section>
+    Syntax
+    <div class="row">
+        <div class="col-md-6">
+            <p class="header">Regular Functions</p>
+            <pre class="fragment"><code data-trim data-noescape>
+              function function_name(args..){
+                <br>
+                //Function body
+                <br>
+                return;
+              }
+            </code></pre>
+        </div>
+        <div class="col-md-6">
+            <p class="header">Arrow Functions</p>
+
+            <pre class="fragment"><code data-trim data-noescape>
+              (args...) =>{
+                return
+              }
+            </code></pre>
+
+            <pre class="fragment"><code data-trim data-noescape>
+              (args...) =>
+                //implicit return
+            </code></pre>
+
+            <pre class="fragment"><code data-trim data-noescape>
+              arg =>
+                //Implicit return
+            </code></pre>
+            <p class="fragment comparison">always Anonymouse</p>
+        </div>
+
+    </div>
+</section>
+<section>
+    <div class="row">
+        <p class="fragment header-left-highlight">Regular function</p>
+        <pre class="fragment"><code data-trim data-noescape>
+        [1,2,3]
+        .map(function(num){
+
+          return ++num;
+
+        })
+        </code></pre>
+
+    </div>
+
+    <div class="row">
+        <p class="fragment header-left-highlight">Arrow function</p>
+
+        <div class="col-md-4">
+            <pre class="fragment"><code data-trim data-noescape>
+            [1,2,3].map(
+            (num)=>{
+
+              return ++num;
+
+            })
+            //Print [2,3,4]
+            </code></pre>
+        </div>
+        <div class="col-md-4">
+            <pre class="fragment"><code data-trim data-noescape>
+                [1,2,3].map(
+                (num)=>
+
+                  ++num;
+
+                )
+                //Print [2,3,4]
+                </code></pre>
+        </div>
+        <div class="col-md-4">
+            <pre class="fragment"><code data-trim data-noescape>
+                [1,2,3]
+                .map( num=>++num)
+                <br><br>
+                //Print [2,3,4]
+                </code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    this binding
+    <div class="row">
+        <div class="col-md-6">
+            <pre class="fragment"><code data-trim data-noescape>
+            function BankAccount(){
+              this.balance=0;
+              setTimeout(function(){
+                console.log(++this.balance);
+              },2000);
+            }
+             <p class="fragment">new BankAccount();</p>
+             <p class="fragment">Nan</p>
+            </code></pre>
+        </div>
+        <div class="col-md-6">
+            <pre class="fragment"><code data-trim data-noescape>
+            function BankAccount(){
+              this.balance=0;
+              var that=this;
+              setTimeout(function(){
+                console.log(++that.balance);
+              },2000);
+            }
+          </code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    Arrow function
+    <div class="row">
+        <pre><code data-trim data-noescape>
+          function BankAccount(){
+            this.balance=0;
+            setTimeout(()=>{
+              console.log(++this.balance);
+            },2000);
+          }
+
+          new BankAccount()
+
+          //prints 1
+        </code></pre>
+        <p class="highlight-points">An arrow function does not create its own this context</p>
+    </div>
+</section>
+<section>
+    Constructor
+</section>
+<section>
+    prototype
+</section>
+<section>
+    When to use Arrow functions ?
+    <p class="highlight-points def">You don't need this rebinding, for example you can't use arrow function in events handlers</p>
+</section>
