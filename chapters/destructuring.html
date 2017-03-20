@@ -1,0 +1,116 @@
+<section>
+    Destructuring
+</section>
+<section>
+    <a class="highlight-points" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects into distinct variables</a>
+</section>
+<section>
+    Example
+    <div class="row">
+        <div class="col-md-6">
+            <p class="header-center-highlight">Before ES6</p>
+
+            <pre class="fragment"><code data-trim data-noescape>
+//Array
+var arr=[10,20];
+var arg1=arr[0];
+var arg2=arr[1];
+//Object
+var obj={name:"Superman",
+                job:"Pimp"};
+var name=obj.name
+var job =obj.job
+            </code></pre>
+        </div>
+        <div class="col-md-6">
+            <p class="fragment header-center-highlight">ES6</p>
+            <pre class="fragment"><code data-trim data-noescape>
+            //Array
+            var arr=[10,20];
+            [arg1,arg2]=arr
+            //arg1=10, arg2=20
+            //Object
+            var obj={name:"Superman",
+                job:"Pimp"};
+            ({name,job}=obj);
+            //name=Superman, job=Pimp
+            </code></pre>
+        </div>
+    </div>
+</section>
+
+<section>
+    Swaping Variables
+    <div class="row">
+        <div class="col-md-6">
+            <p class="header-center-highlight">Before ES6</p>
+            <pre><code data-trim data-noescape>
+            var a=10;
+            var b=20;
+            var tmp=a;
+            a=b;
+            b=tmp;
+            </code></pre>
+        </div>
+        <div class="col-md-6">
+            <p class="header-center-highlight">ES6</p>
+            <pre><code data-trim data-noescape>
+              var a=10;
+              var b=20;
+              [a,b]=[b,a];
+              console.log(a,b); //20 10
+            </code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    Destructing and functions
+    <div class="row">
+        <div class="col-md-6">
+            <p class="header-center-highlight">Before ES6</p>
+            <pre><code data-trim data-noescape>
+              var obj={name:"Freddy Krueger",age:9999};
+              foo(obj.name,obj.age);
+
+              function foo(name,age){
+                //Do something
+              }
+            </code></pre>
+        </div>
+        <div class="col-md-6">
+            <p class="header-center-highlight">ES6</p>
+            <pre><code data-trim data-noescape>
+              var obj={name:"Freddy Krueger",age:9999};
+              foo(obj);
+
+              function foo({name,age}){
+                console.log(name,age)
+              }
+            </code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    Default Values
+    <div class="row fragment">
+        <p class="header-center-highlight">Before ES6</p>
+        <pre class='fragment'><code data-trim data-noescape>
+              function foo(obj){
+                if(obj&&typeof(obj.name)==='undefined'){
+                  obj.name="default_value";
+                }
+              }
+            </code></pre>
+    </div>
+    <div class="row fragment">
+        <p class="header-center-highlight">ES6</p>
+        <pre><code data-trim data-noescape>
+              function foo({name='default_Value'}){
+                console.log("name: ",name);
+              }
+
+              foo({age:10});
+              foo({name:"Valid value"});
+            </code></pre>
+    </div>
+</section>
