@@ -1,0 +1,44 @@
+<section>
+    Template Strings
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="header-center-highlight">
+                Pre ES6
+            </p>
+            <pre class="fragment"><code>
+var name="Jason";
+var age=-932;
+
+var sentence="My Name is "+
+name+" and I am "+age+
+" years old";
+
+console.log(sentence)
+
+            </code></pre>
+        </div>
+
+        <div class="col-md-6">
+            <p class="header-center-highlight">
+                ES6
+            </p>
+            <pre class="fragment"><code>
+const name="Jason";
+const age=-932;
+//Notice use of `
+const sentence =`Hello My name is ${name}
+//Line break witout /n or +
+My Age is ${age}`;
+console.log(sentence);
+
+//Expression interpolation
+console.log(
+`My age now is ${age+1}`
+)
+</code></pre>
+        </div>
+
+    </div>
+</section>
