@@ -1,0 +1,131 @@
+<section>
+    Object Literal in ES6
+</section>
+<section>
+    <p>Object Literal in JS</p>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="header-center-highlight">Syntax</p>
+            <pre class="fragment"><code>var obj={
+            key:value,
+            ...
+            ...
+          }</code></pre>
+        </div>
+        <div class="col-md-6">
+            <p class="header-center-highlight">Example</p>
+            <pre class="fragment"><code>var pData={
+name:"Jack the reaper",
+age:40,
+kids:['Andy Nukem','Crazy Lo']
+}</code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    Object Literals
+    <div class="row">
+        <div class="col-md-6">
+            <p class="header-center-highlight">Pre ES6</p>
+            <pre class="fragment"><code>
+function toObj(name,age,kids){
+//Notice the repetition
+var pData={
+  name:name,
+  age:age,
+  kids:kids
+};
+return pData;
+}
+</code></pre>
+        </div>
+        <div class="col-md-6">
+            <p class="header-center-highlight">ES6</p>
+            <pre class="fragment"><code data-trim data-noescape>
+function toObj(name,age,kids){
+  const pData={
+   name,age,kids
+  };
+  return pData;
+}
+
+const obj=toObj('Jack',40,['Andy','Lo']);
+console.log(obj);
+            </code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    <p>Object Literal- Defining functions</p>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="highlight-points">Pre Es6</p>
+            <pre class="fragment"><code data-trim data-noescape>var obj={
+  foo:function(){
+
+  },
+  bar:function(){
+
+  }
+}</code></pre>
+        </div>
+        <div class="col-md-6">
+            <p class="highlight-points">Es6</p>
+            <pre class="fragment"><code data-trim data-noescape>const obj={
+    foo(){
+      console.log("Foo...");
+    },
+    bar(){
+      console.log("Bar...");
+    }
+  }
+  obj.foo();
+  obj.bar();
+</code></pre>
+        </div>
+    </div>
+</section>
+<section>
+    <p>Object Literals-Compute property names</p>
+    <div class="row">
+        <p>Pre ES6</p>
+        <pre class="fragment"><code data-trim data-noescape>
+          <p class="fragment">function toObj(direction,opposite){
+            return {
+              direction:direction,
+              opposite:opposite
+            }
+          }
+        //Make it more descriptive, Change opposite to opposite
+        //of left <span class="fragment">
+          function toObj(direction,opposite){
+            var tmpObj={direction:direction};
+            tmpObj['oppoiste_of_'+direction]=direction
+            return tmpObj;
+          }
+        </span>
+        </p>
+      </code></pre>
+    </div>
+</section>
+<section>
+    <p>Object Literals-Compute property names</p>
+    <div class="row">
+        <p>ES6</p>
+        <pre class="fragment"><code data-trim data-noescape>
+          <p><span class="fragment">function toObj(direction,opposite){
+  return {
+    direction:direction,
+    ['oppoiste_of_'+direction]:opposite
+  }
+}
+//Notice property names are computed inside the object
+</span>
+<span class="fragment">
+console.log(toObj('left','right'));
+//{ direction: "left", oppoiste_of_left: "right" }
+</span>
+</p>
+        </code></pre>
+    </div>
+</section>
