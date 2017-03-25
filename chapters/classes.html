@@ -1,0 +1,51 @@
+<section>
+    Classes
+</section>
+<section>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">JavaScript classes introduced in ECMAScript 2015 are <span class="highlight-points">syntactical sugar over JavaScript's existing prototype-based inheritance. The class syntax is not introducing a new object-oriented inheritance model to JavaScript.</span> JavaScript classes provide a much simpler and clearer syntax to create objects and deal with inheritance.</a>
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="header-center-highlight">Pre ES6</p>
+            <pre><code data-trim data-noescape>
+              <div class="fragment">/*Define a function*/
+              var House=function(color,
+              rooms,floors){
+                this.color=color;
+                this.rooms=rooms;
+                this.floors=floors;
+              }
+            </div>
+            <div class="fragment">/*Define descripe function*/
+            House.prototype.descripe=
+              function(){
+                console.log(this.color,
+                this.rooms,this.floors);
+              }</div><div class="fragment">
+            var h1=new House("red",2,4);
+            console.log(h1);
+            //red 2 4
+            </div><code></pre>
+        </div>
+        <div class="col-md-6">
+            <p class="header-center-highlight">ES6</p>
+            <pre class="fragment"><code data-trim data-noescape>
+          class House{<p class="fragment">/*Define constructor*/
+            constructor(color,rooms,
+                        floors) {
+             this.color=color;
+             this.rooms=rooms;
+             this.floors=floors;
+           }</p><p class="fragment">/*Define descripe function*/
+            descripe(){
+                console.log(this.color,
+                this.rooms,this.floors);
+              }</p>}<p class="fragment">var h1=new House("red",2,4);
+          h1.descripe();
+          //red 2 4</p>
+            </code></pre>
+        </div>
+    </div>
+
+</section>
