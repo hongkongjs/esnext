@@ -1,0 +1,37 @@
+<section>
+    function*
+</section>
+<section>
+    What are generators?
+    <br>
+    <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/function*">Generators are functions which can be exited and later re-entered. Their context (variable bindings) will be saved across re-entrances.</a>
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="header-center-highlight">Normal Function</p>
+            <pre><code data-trim data-noescape>
+              <code class="fragment">function printArr(arr){
+                for(var i in arr){
+                  console.log(arr[i]);
+                }
+              }</code>
+              <code class="fragment">printArr([1,2,3]);</code>
+              <code class="fragment">//1</code>
+              <code class="fragment">//2</code>
+              <code class="fragment">//3</code>
+            </code></pre>
+        </div>
+        <div class="col-md-6">
+            <p class="header-center-highlight">Generator Function</p>
+            <pre><code data-trim data-noescape>
+              <code class="fragment">/*Notice the asterisk*/<br>function <mark>*</mark>printArr(arr){
+                    for(let i of arr){
+                      yield i;
+                    }
+                }</code><code class="fragment">/*Return Generator Object*/
+              const gen=printArr([1,2,3]);</code><code class="fragment">console.log(gen.next());<br>/*{ value: 1, done: false }*/</code><code class="fragment">console.log(gen.next());<br>/*{ value: 2, done: false }*/</code><code class="fragment">console.log(gen.next());<br>/*{ value: 3, done: false }*/</code><code class="fragment">console.log(gen.next());<br>/*
+              {value: undefined, done: true }*/</code></code></pre>
+        </div>
+    </div>
+</section>
