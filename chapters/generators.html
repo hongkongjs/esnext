@@ -1,3 +1,4 @@
+<p class="topic-header">Generators</p>
 <section>
     function*
 </section>
@@ -5,33 +6,56 @@
     What are generators?
     <br>
     <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/function*">Generators are functions which can be exited and later re-entered. Their context (variable bindings) will be saved across re-entrances.</a>
+    <p class="highlight-points">it conforms to both the iterable protocol and the iterator protocol</p>
+</section>
+<section>
+    <p class="header-left-highlight">Syntax</p>
+    <pre class="fragment"><code>function* function_name(args){
+      //Do something
+      yield result;
+    }</code></pre>
 </section>
 <section>
     <div class="row">
-        <div class="col-md-6">
-            <p class="header-center-highlight">Normal Function</p>
-            <pre><code data-trim data-noescape>
-              <code class="fragment">function printArr(arr){
-                for(var i in arr){
-                  console.log(arr[i]);
-                }
-              }</code>
-              <code class="fragment">printArr([1,2,3]);</code>
-              <code class="fragment">//1</code>
-              <code class="fragment">//2</code>
-              <code class="fragment">//3</code>
-            </code></pre>
-        </div>
-        <div class="col-md-6">
-            <p class="header-center-highlight">Generator Function</p>
-            <pre><code data-trim data-noescape>
-              <code class="fragment">/*Notice the asterisk*/<br>function <mark>*</mark>printArr(arr){
-                    for(let i of arr){
-                      yield i;
-                    }
+        <p class="header-center-highlight">Generator example</p>
+        <pre><code data-trim data-noescape>
+              <code class="fragment">/*Notice the asterisk*/<br>function <mark>*</mark>foo(){
+                    yield 1;
+                    yield 2;
+                    yield 3;
                 }</code><code class="fragment">/*Return Generator Object*/
-              const gen=printArr([1,2,3]);</code><code class="fragment">console.log(gen.next());<br>/*{ value: 1, done: false }*/</code><code class="fragment">console.log(gen.next());<br>/*{ value: 2, done: false }*/</code><code class="fragment">console.log(gen.next());<br>/*{ value: 3, done: false }*/</code><code class="fragment">console.log(gen.next());<br>/*
-              {value: undefined, done: true }*/</code></code></pre>
-        </div>
+              const gen=foo();</code><code class="fragment">console.log(gen.next());<br>/*{ value: 1, done: false }*/</code><code class="fragment">console.log(gen.next());<br>/*{ value: 2, done: false }*/</code><code class="fragment">console.log(gen.next());<br>/*{ value: 3, done: false }*/</code><code class="fragment">console.log(gen.next());<br>/*{value: undefined, done: true }*/</code></code></pre>
     </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <p class="header-center-highlight">yet another example</p>
+        <pre><code data-trim data-noescape>function* foo(){
+          var param=yield 1;
+          console.log("Pram: ",param);
+        }
+      <code class="fragment">var gen=foo();</code>
+      <code class="fragment">gen.next();/*{value:1,done:false}*/</code>
+      <code class="fragment">gen.next(100);</code>
+      <code class="fragment">/*Param: 100*/</code>
+      <code class="fragment">/*{value:undefined,done:true}*/</code>
+      </code></pre>
+    </div>
+</section>
+<section>
+    <p class="header-center-highlight">Can I get real world example?</p>
+    <pre><code>function* stalk(person){
+      const tweets =yield fetchTweets(person);
+      /* takes 5 seconds*/
+      const pics =yield fetchFB(person)
+      /*takes another 5 seconds*/;
+      return{thoughts:tweets,pics:pics}
+    }</code></pre>
+    <pre class="fragment"><code>function processGenerator(generator){
+      const gen=generator("Spider Man");
+      var tweetsPromise=gen.next()
+      teetPromise.then((tweets)=>gen.next(tweets))
+      .then((pics)=>gen.next(pics));
+    }</code></pre>
 </section>

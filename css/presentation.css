@@ -49,3 +49,9 @@
 .reveal p.comparison{
   font-size:30px;
 }
+.reveal p.topic-header{
+  font-size:20px;
+  position: fixed;
+  text-align: left;
+
+}
