@@ -1,6 +1,6 @@
-## Gentle Intro to ES6/7
+## Introduction to ES6/7
 
-####Dependencies
+#### Dependencies
 grunt
 node
 
