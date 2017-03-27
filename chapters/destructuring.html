@@ -1,3 +1,4 @@
+<p class="topic-header">Destructuring</p>
 <section>
     Destructuring
 </section>
@@ -7,38 +8,53 @@
 <section>
     Example
     <div class="row">
-        <div class="col-md-6">
-            <p class="header-center-highlight">Before ES6</p>
+        <p class="header-center-highlight">Before ES6</p>
 
-            <pre class="fragment"><code data-trim data-noescape>
+        <pre class="fragment"><code data-trim data-noescape>
 //Array
-var arr=[10,20];
-var arg1=arr[0];
-var arg2=arr[1];
+var arr = [10,20];
+
+var arg1 = arr[0];
+
+var arg2 = arr[1];</pre></code>
+        <pre class="fragment"><code data-trim data-noescape>
 //Object
-var obj={name:"Superman",
-                job:"Pimp"};
-var name=obj.name
-var job =obj.job
-            </code></pre>
-        </div>
-        <div class="col-md-6">
-            <p class="fragment header-center-highlight">ES6</p>
-            <pre class="fragment"><code data-trim data-noescape>
-            //Array
-            var arr=[10,20];
-            [arg1,arg2]=arr
-            //arg1=10, arg2=20
-            //Object
-            var obj={name:"Superman",
-                job:"Pimp"};
-            ({name,job}=obj);
-            //name=Superman, job=Pimp
-            </code></pre>
-        </div>
+var obj = {name:"Superman", job:"Pimp"};
+
+var name = obj.name
+
+var job = obj.job</code></pre>
     </div>
 </section>
+<section>
+    <img src="imgs/destructure/coding.gif">
+</section>
+<section>
+    <p class="fragment header-center-highlight">ES6</p>
+    <pre class="fragment"><code data-trim data-noescape>
+      //Array destructuring
+      var arr = [10, 20];
 
+      [ arg1, arg2 ] = arr;
+      console.log(arg1, arg2);
+      //arg1=10, arg2=20
+</code></pre>
+    <pre class="fragment"><code data-trim data-noescape>
+      //Object destructuring
+      const obj = { name:"wolverine",age:40, job:"bikini model" };
+
+      ( {name, job} = obj );
+
+      console.log(name,job);
+
+      //name=Superman, job=bikini model
+    </code></pre>
+</section>
+<section>
+    Swapping variables problem
+    <br>
+    <img src="imgs/destructure/swap.gif" alt="">
+</section>
 <section>
     Swaping Variables
     <div class="row">
@@ -66,39 +82,32 @@ var job =obj.job
 <section>
     Destructing and functions
     <div class="row">
-        <div class="col-md-6">
-            <p class="header-center-highlight">Before ES6</p>
-            <pre><code data-trim data-noescape>
-              var obj={name:"Freddy Krueger",age:9999};
-              foo(obj.name,obj.age);
+        <p class="header-center-highlight">ES6</p>
+        <pre><code data-trim data-noescape>
+              var obj = { name:"Freddy Krueger" ,age:9999 };
 
-              function foo(name,age){
-                //Do something
-              }
-            </code></pre>
-        </div>
-        <div class="col-md-6">
-            <p class="header-center-highlight">ES6</p>
-            <pre><code data-trim data-noescape>
-              var obj={name:"Freddy Krueger",age:9999};
               foo(obj);
+              /*Freddy Krueger 9999*/
 
-              function foo({name,age}){
+              function foo( {name, age} ){
+
                 console.log(name,age)
+
               }
             </code></pre>
-        </div>
     </div>
 </section>
-<section>
+<!-- <section>
     Default Values
     <div class="row fragment">
         <p class="header-center-highlight">Before ES6</p>
         <pre class='fragment'><code data-trim data-noescape>
               function foo(obj){
-                if(obj&&typeof(obj.name)==='undefined'){
+
+                if( obj && typeof (obj.name) === 'undefined'){
                   obj.name="default_value";
                 }
+
               }
             </code></pre>
     </div>
@@ -113,4 +122,4 @@ var job =obj.job
               foo({name:"Valid value"});
             </code></pre>
     </div>
-</section>
+</section> -->

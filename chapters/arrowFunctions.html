@@ -1,3 +1,4 @@
+<p class="topic-header">Arrow functions</p>
 <section>
     Arrow Functions
 </section>
@@ -20,17 +21,17 @@
 
             <pre class="fragment"><code data-trim data-noescape>
               (args...) =>{
-                return
+                return value
               }
             </code></pre>
 
             <pre class="fragment"><code data-trim data-noescape>
-              (args...) =>
+              (args...) => value
                 //implicit return
             </code></pre>
 
             <pre class="fragment"><code data-trim data-noescape>
-              arg =>
+              arg =>value
                 //Implicit return
             </code></pre>
             <p class="fragment comparison">always Anonymouse</p>
@@ -89,31 +90,36 @@
 </section>
 <section>
     this binding
-    <div class="row">
-        <div class="col-md-6">
-            <pre class="fragment"><code data-trim data-noescape>
-            function BankAccount(){
-              this.balance=0;
-              setTimeout(function(){
-                console.log(++this.balance);
-              },2000);
-            }
-             <p class="fragment">new BankAccount();</p>
-             <p class="fragment">Nan</p>
-            </code></pre>
-        </div>
-        <div class="col-md-6">
-            <pre class="fragment"><code data-trim data-noescape>
-            function BankAccount(){
-              this.balance=0;
-              var that=this;
-              setTimeout(function(){
-                console.log(++that.balance);
-              },2000);
-            }
-          </code></pre>
-        </div>
-    </div>
+    <pre class="fragment"><code data-trim data-noescape>
+  function BankAccount(){
+    this.balance=0;
+    setTimeout( function(){
+      console.log(this);
+      console.log(this.balance);
+      console.log( ++this.balance );
+    }, 2000);
+
+  }
+   <p class="fragment">new BankAccount();</p>
+   <p class="fragment">/*window*/ <br>/*undefined*/ <br>/*Nan*/</p>
+  </code></pre>
+</section>
+<section>
+    this binding..continue
+    <pre class="fragment"><code data-trim data-noescape>
+  function BankAccount(){
+    this.balance=0;
+    var that=this;/*Assign this to that*/
+    setTimeout( function(){
+      console.log(that);
+      console.log(that.balance);
+      console.log( ++that.balance );
+    }, 2000);
+
+  }
+   <p class="fragment">new BankAccount();</p>
+   <p class="fragment">/*Object {balance:0}*/ <br>/*0*/ <br>/*1*/</p>
+  </code></pre>
 </section>
 <section>
     Arrow function
@@ -122,24 +128,20 @@
           function BankAccount(){
             this.balance=0;
             setTimeout(()=>{
+              console.log(this);
+              console.log(this.balance);
               console.log(++this.balance);
             },2000);
           }
 
           new BankAccount()
 
-          //prints 1
+          <p class="fragment">/*Object {balance:0}*/ <br>/*0*/ <br>/*1*/</p>
         </code></pre>
         <p class="highlight-points">An arrow function does not create its own this context</p>
     </div>
 </section>
 <section>
-    Constructor
-</section>
-<section>
-    prototype
-</section>
-<section>
     When to use Arrow functions ?
-    <p class="highlight-points def">You don't need this rebinding, for example you can't use arrow function in events handlers</p>
+    <p class="highlight-points def">When you don't need this rebinding, for example you can't use arrow function in events handlers</p>
 </section>
